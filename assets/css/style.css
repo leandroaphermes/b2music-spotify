@@ -1,11 +1,13 @@
 :root{
     --box-primary-dark: #232323;
-    --box-secundary-dark: #333333;
+    --box-secundary-dark: #303030;
     --text-primary-white: #86e2e2;
     --text-primary: #36a1a1;
     --text-primary-hover: #60e0e0;
     --btn-primary: #616163;
     --btn-secundary: #e55812;
+    --progress-bar-active: #5a8888;
+    --progress-bar-full: #325050;
 }
 
 *, body {
@@ -26,18 +28,30 @@ body{
 
 a {
     text-decoration: none;
-    font-style: inherit;
+    color: var(--text-primary);
 }
 
 ul, li {
     list-style: none;
 }
 
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
 
-.progress-bar {
+.progress {
     width: 100%;
     height: 5px;
-    background-color: var(--text-primary-hover);
+    background-color: var(--progress-bar-full);
+    border-radius: 10px;
+}
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--progress-bar-active);
     border-radius: 10px;
 }
 
@@ -108,29 +122,39 @@ ul, li {
 .song-details {
     grid-column: 1/2;
     grid-row: 1;
-    background-color: rgba(255, 255, 255, 0.1);
 }
 .song-status {
     grid-column: 2/5;
     grid-row: 1;
-    background-color: rgba(245, 14, 14, 0.1);
 }
 .song-control {
     grid-column: 5/6;
     grid-row: 1;
-    background-color: rgba(156, 49, 243, 0.1);
 }
 
+.song-details {
+    padding: 1rem;
+}
 
 .song-status-controls-btn {
-    font-size: 2rem;
+    font-size: 22px;
     text-align: center;
-    
+    padding: 3%;
 }
 
+.song-status-controls-btn .icofont-pause, .icofont-play-alt-1 {
+    font-size: 28px;
+}
 
-
-
+.song-status-controls-progress-bar{
+    margin: 0 6%;
+    display: flex;
+}
+.song-status-controls-progress-bar .progress{
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
 
 
 
