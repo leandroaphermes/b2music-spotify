@@ -45,45 +45,99 @@
                 </ul>
             </div>
         </div>
-        <div class="body-content"></div>
+        <div class="body-content">
+
+                <div class="card">
+                    <div class="card-container">
+                        <div class="card-header">
+                            <h3 class="card-title">Titulo do Card</h3>
+                            <div class="card-options">
+                                <a href="#">contato@email.com</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum sint quas, labore officiis itaque ratione! Deleniti aut vel quod. Vero explicabo obcaecati totam unde ut maxime quod tenetur expedita neque?</p>
+
+                            <hr>
+
+                            <button class="btn btn-primary">
+                                Sou um botão primary
+                            </button>
+                            <button class="btn btn-secundary">
+                                Sou um botão secundary
+                            </button>
+                            <button class="btn btn-primary btn-sm">
+                                Sou um botão primary sm
+                            </button>
+                            <button class="btn btn-primary btn-lg">
+                                Sou um botão primary lg
+                            </button>
+                            
+                            <button class="btn btn-primary btn-block">
+                                Sou um botão primary
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+        </div>
     </div>
     <div class="player-container">
 
         <div class="song-details">
-            <div class="song-details-title"><a href="#">Five Hours</a></div>
-            <div class="song-details-author"><a href="#">Deorro</a></div>
+            <div class="song-details-title">
+                <a href="#">Five Hours</a>
+            </div>
+            <div class="song-details-author">
+                <a href="#">Deorro</a>
+            </div>
         </div>
         <div class="song-status">
             <div class="song-status-controls">
-
-                <div class="song-status-controls-btn">
                     
-                    <i class="icofont-random"></i>
+                <button type="button" class="btn btn-clean mr-1" title="Ordem Aleatoria"><i class="icofont-random"></i></button>
 
-                    <i class="icofont-rewind"></i>
+                <button type="button" class="btn btn-clean mr-1" title="Anterior"><i class="icofont-rewind"></i></button>
 
-                    <i class="icofont-pause hide"></i>
-                    <i class="icofont-play-alt-1"></i>
+                <button type="button" class="btn btn-clean mr-1 hide" title="Pause"><i class="icofont-pause"></i></button>
+                <button type="button" class="btn btn-clean mr-1" title="Play"><i class="icofont-play-alt-1"></i></button>
 
-                    <i class="icofont-forward"></i>
+                <button type="button" class="btn btn-clean mr-1" title="Próxima"><i class="icofont-forward"></i></button>
 
-                    <i class="icofont-ui-reply"></i>
-
-                </div>
+                <button type="button" class="btn btn-clean" title="Repetir"><i class="icofont-ui-reply"></i></button>
+            </div>
+            <div class="song-status-duration">
                 <div class="song-status-controls-progress-bar">
-                    <span>0:00</span>
-                    <div class="progress">
+                    <span class="btn btn-clean" id="song-time-current">0:50</span>
+                    <div class="progress" id="song-time-progress">
                         <div class="progress-bar" style="width: 20%;"></div>
                     </div>
-                    <span>3:00</span>
+                    <span class="btn btn-clean" id="song-time-total">3:00</span>
                 </div>
-
             </div>
-            <div class="song-status-duration"></div>
         </div>
         <div class="song-control">
-            <div class="song-control-playlist"></div>
-            <div class="song-control-volume"></div>
+            <div class="song-control-playlist mr-2">
+                <button type="button" class="btn btn-clean" title="Fila de Reprodução"><i class="icofont-listine-dots"></i></button>
+            </div>
+            <div class="song-control-volume mr-2">
+                <div class="song-control-volume-icon mr-1">
+                    <button type="button" class="btn btn-clean" title="Mutar | Com Som">
+                        <i class="icofont-volume-mute hide"></i>
+                        <i class="icofont-volume-off hide"></i>
+                        <i class="icofont-volume-down hide"></i>
+                        <i class="icofont-volume-up"></i>
+                    </button>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 20%;"></div>
+                </div>
+            </div>
+            <div class="song-control-volume-expand">
+                <button type="button" class="btn btn-clean" title="Tela Cheia"><i class="icofont-expand"></i></button>
+            </div>
         </div>
 
     </div>

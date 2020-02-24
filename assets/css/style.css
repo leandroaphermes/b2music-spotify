@@ -1,6 +1,7 @@
 :root{
     --box-primary-dark: #232323;
     --box-secundary-dark: #303030;
+    --box-content: #171416;
     --text-primary-white: #86e2e2;
     --text-primary: #36a1a1;
     --text-primary-hover: #60e0e0;
@@ -8,23 +9,32 @@
     --btn-secundary: #e55812;
     --progress-bar-active: #5a8888;
     --progress-bar-full: #325050;
+    
+    --scrollbarBG: rgba(9, 10, 10, 0.452);
+    --thumbBG: rgba(43, 47, 48, 0.904);
 }
 
-*, body {
+html,body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 body{
-    background-color: #222;
+    background-color: var(--box-content);
     position: relative;
     width: 100vw;
     height: 100vh;
     font-family: 'Roboto', Tahoma, sans-serif;
     color: var(--text-primary);
     font-weight: normal;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
+
+body::-webkit-scrollbar { width: 11px; }
+body::-webkit-scrollbar-track { background: var(--scrollbarBG); }
+body::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 6px; }
 
 a {
     text-decoration: none;
@@ -33,6 +43,8 @@ a {
 
 ul, li {
     list-style: none;
+    padding: 0px;
+    margin: 0px
 }
 
 .hide{
@@ -55,6 +67,45 @@ ul, li {
     border-radius: 10px;
 }
 
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 0.7rem 2rem;
+    border: 1px solid transparent;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.btn-clean {
+    background-color: transparent;
+    padding: 0px 0px;
+}
+.btn-primary {
+    background-color: var(--btn-primary);
+    color: var(--text-primary-white);
+}
+.btn-secundary {
+    background-color: var(--btn-secundary);
+    color: var(--text-primary-white);
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-sm {
+    padding: 0.6rem 1.3rem;
+    font-size: 0.8rem;
+}
+.btn-lg {
+    padding: .6rem .8rem;
+    font-size: 1.4rem;
+}
 
 
 
@@ -62,9 +113,12 @@ ul, li {
 .container {
     display: flex;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    height: 90vh;
 }
 .menu-aside {
-    width: 30vw;
+    width: 25vw;
     height: 90vh;
     background-color: var(--box-primary-dark);
 }
@@ -74,11 +128,11 @@ ul, li {
     color: var(--text-primary-white);
 }
 .icon-user i {
-    font-size: 2rem;
+    font-size: 2em;
     margin-top: 4%;
 }
 .header-user span {
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 .menu-list{
     margin-top: 10%;
@@ -90,7 +144,7 @@ ul, li {
 }
 
 .menu-item a {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     color: var(--text-primary);
 }
 
@@ -103,10 +157,44 @@ ul, li {
 
 
 .body-content {
-    width: 70vw;
-    height: 90vh;
+    width: 75vw;
+    height: auto;
     box-shadow: inset -4px -4px 25px #000;
-    background-color: #765986;
+    background-color: var(--box-content);
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+div.card {
+    width: 100%;
+    height: auto;
+}
+
+div.card div.card-container {
+    background-color: var(--box-secundary-dark);
+    border-radius: 5px;
+}
+
+div.card div.card-container div.card-header {
+    padding: 1em;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px 0px 0px 5px;
+    position: relative;
+}
+
+div.card div.card-container div.card-header .card-title {
+    margin: 0px;
+}
+
+div.card div.card-container div.card-header div.card-options {
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+div.card div.card-container div.card-body {
+    padding: 1em;
 }
 
 .player-container {
@@ -119,30 +207,45 @@ ul, li {
 }
 
 
+
+
+
+
+
+
+
+
 .song-details {
     grid-column: 1/2;
     grid-row: 1;
+    align-self: center;
+    padding-left: 20px;
+    box-sizing: border-box;
 }
 .song-status {
     grid-column: 2/5;
     grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 .song-control {
     grid-column: 5/6;
     grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    box-sizing: border-box;
 }
 
-.song-details {
-    padding: 1rem;
-}
-
-.song-status-controls-btn {
+.song-status-controls {
     font-size: 22px;
     text-align: center;
-    padding: 3%;
+    margin-bottom: 2%;
 }
 
-.song-status-controls-btn .icofont-pause, .icofont-play-alt-1 {
+.song-status-controls .icofont-pause, .song-status-controls .icofont-play-alt-1 {
     font-size: 28px;
 }
 
@@ -156,6 +259,15 @@ ul, li {
     margin-right: 2%;
 }
 
+.song-control-volume {
+    display: flex;
+    width: 100px;
+}
+.song-control-volume .progress {
+    display: inline-block;
+    align-self: center;
+    justify-self: center;
+}
 
 
 
