@@ -119,7 +119,7 @@ ul, li {
 }
 .menu-aside {
     width: 25vw;
-    height: 90vh;
+    height: auto;
     background-color: var(--box-primary-dark);
 }
 
