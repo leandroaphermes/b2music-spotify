@@ -32,9 +32,9 @@ body{
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
 
-body::-webkit-scrollbar { width: 11px; }
-body::-webkit-scrollbar-track { background: var(--scrollbarBG); }
-body::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 6px; }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--scrollbarBG); }
+::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 6px; }
 
 a {
     text-decoration: none;
@@ -45,6 +45,11 @@ ul, li {
     list-style: none;
     padding: 0px;
     margin: 0px
+}
+
+img {
+    max-width: 100%;
+    display: inline-block;
 }
 
 .hide{
@@ -98,6 +103,12 @@ ul, li {
     display: block;
     width: 100%;
 }
+.btn-circle {
+    display: block;
+    border-radius: 50px;
+    padding: 12px;
+    box-shadow: 0px 0px 10px var(--box-content);
+}
 .btn-sm {
     padding: 0.6rem 1.3rem;
     font-size: 0.8rem;
@@ -115,10 +126,10 @@ ul, li {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    height: 90vh;
+    height: calc(100vh - 100px);
 }
 .menu-aside {
-    width: 25vw;
+    width: 240px;
     height: auto;
     background-color: var(--box-primary-dark);
 }
@@ -157,64 +168,83 @@ ul, li {
 
 
 .body-content {
-    width: 75vw;
+    width: 100vw;
     height: auto;
     box-shadow: inset -4px -4px 25px #000;
     background-color: var(--box-content);
     padding: 15px;
     box-sizing: border-box;
+    overflow: auto;
 }
 
-div.card {
-    width: 100%;
-    height: auto;
+
+.card {
+    display: grid;
+    grid-auto-rows: 0;
+    grid-template-columns: repeat( auto-fill, minmax(180px, 1fr));
+    grid-template-rows: auto 1fr;
+    grid-gap: 16px;
+    margin-bottom: 25px;
 }
 
-div.card div.card-container {
+.card-header{
+    grid-column: 1/-1;
+}
+
+.card-header div.card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-primary-white);
+    letter-spacing: 0.1em;
+}
+
+.card-content {
     background-color: var(--box-secundary-dark);
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
-}
-
-div.card div.card-container div.card-header {
-    padding: 1em;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
-    border-radius: 5px 0px 0px 5px;
+    padding: 15px;
+    box-sizing: border-box;
     position: relative;
+    cursor: pointer;
 }
-
-div.card div.card-container div.card-header .card-title {
-    margin: 0px;
+.song-describe .song-describe-title {
+    color: var(--text-primary-white);
+    font-size: 0.8em;
+    font-weight: bold;
+    letter-spacing: 0.15em;
 }
-
-div.card div.card-container div.card-header div.card-options {
-    float: right;
+.song-describe .song-describe-body {
+    font-size: 0.7em;
+    margin-top: 5px;
+}
+.song-player{
     position: absolute;
+    visibility: hidden;
+    opacity: 0;
     right: 15px;
-    top: 15px;
+    bottom: 15px;
+    transition: opacity 0.5s;
+}
+.card-content:hover .song-player {
+    opacity: 1;
+    visibility: visible;
 }
 
-div.card div.card-container div.card-body {
-    padding: 1em;
-}
+
+
+
+
+
 
 .player-container {
-    height: 10vh;
+    height: 100px;
     background-color: var(--box-secundary-dark);
     position: relative;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
 }
-
-
-
-
-
-
-
-
-
-
 .song-details {
     grid-column: 1/2;
     grid-row: 1;
@@ -242,7 +272,6 @@ div.card div.card-container div.card-body {
 .song-status-controls {
     font-size: 22px;
     text-align: center;
-    margin-bottom: 2%;
 }
 
 .song-status-controls .icofont-pause, .song-status-controls .icofont-play-alt-1 {
@@ -265,8 +294,7 @@ div.card div.card-container div.card-body {
 }
 .song-control-volume .progress {
     display: inline-block;
-    align-self: center;
-    justify-self: center;
+    margin-top: 7%;
 }
 
 
