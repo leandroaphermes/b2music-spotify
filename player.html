@@ -16,40 +16,56 @@
                 <div class="icon-user">
                     <ion-icon name="person-outline"></ion-icon>
                 </div>
-                <span class="ml-2">Hamaro</span>
+                <span class="header-user-name ml-1">Hamaro</span>
             </div>
 
             <div class="menu-list">
                 <ul>
 
                     <li class="menu-item">
-                        <a href="#"><ion-icon name="home-outline"></ion-icon>
-                            <span class="ml-1">Inicio</span>
+                        <a href="#">
+                            <ion-icon name="home-outline"></ion-icon>
+                            <span class="menu-item-title ml-1">Inicio</span>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="#">
                             <ion-icon name="list-outline"></ion-icon>
-                            <span class="ml-1">Navegar</span>
+                            <span class="menu-item-title ml-1">Navegar</span>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="#">
                             <ion-icon name="musical-notes-outline"></ion-icon>
-                            <span class="ml-1">Minha Biblioteca</span>
+                            <span class="menu-item-title ml-1">Minha Biblioteca</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <ion-icon name="star-outline"></ion-icon>
+                            <span class="menu-item-title ml-1">Favoritos</span>
                         </a>
                     </li>
 
                 </ul>
+            </div>
+            <div class="photo-song">
+                <img src="assets/img/Five-Hours-by-Deorro.jpg" alt="Five Hours by Deorro">
             </div>
         </div>
         <div class="body-content">
 
             <section class="card">
                 <div class="card-header">
-                    <div class="card-title">Feito para leandro.aparecido.hermes</div>
+                    <div class="card-title">
+                        <a href="#">Feito para leandro.aparecido.hermes</a>
+                        <div class="card-options">
+                            <a href="#">Ver tudo</a>
+                        </div>
+                    </div>
                     <small>Lorem ipsum dolor sit, Blanditiis omnis temporibus laborum prov!</small>
                 </div>
 
@@ -101,45 +117,12 @@
                         </button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <div class="image-album">
-                        <img src="assets/img/default.jpg" alt="Imagem default">
-                    </div>
-                    <div class="song-describe mt-2">
-                        <div class="song-describe-title">
-                            Descobertas da Semana
-                        </div>
-                        <div class="song-describe-body">Suas mixtape tocado durante a semana</div>
-                    </div>
-                    <div class="song-player">
-                        <button class="btn btn-secundary btn-circle">
-                            <ion-icon name="play-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="image-album">
-                        <img src="assets/img/default.jpg" alt="Imagem default">
-                    </div>
-                    <div class="song-describe mt-2">
-                        <div class="song-describe-title">
-                            Descobertas da Semana
-                        </div>
-                        <div class="song-describe-body">Suas mixtape tocado durante a semana</div>
-                    </div>
-                    <div class="song-player">
-                        <button class="btn btn-secundary btn-circle">
-                            <ion-icon name="play-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-
 
             </section>
 
             <section class="card">
                 <div class="card-header">
-                    <div class="card-title">Feito para leandro.aparecido.hermes</div>
+                    <div class="card-title"><a href="#">Feito para leandro.aparecido.hermes</a></div>
                     <small>Lorem ipsum dolor sit, Blanditiis omnis temporibus laborum prov!</small>
                 </div>
 
@@ -200,11 +183,16 @@
     <div class="player-container">
 
         <div class="song-details">
-            <div class="song-details-title">
-                <a href="#">Five Hours</a>
+            <div class="photo-mini-song">
+                <img src="assets/img/Five-Hours-by-Deorro.jpg" alt="Five Hours by Deorro">
             </div>
-            <div class="song-details-author">
-                <a href="#">Deorro</a>
+            <div class="song-details-info">
+                <div class="song-details-title">
+                    <a href="#">Five Hours</a>
+                </div>
+                <div class="song-details-author">
+                    <a href="#">Deorro</a>
+                </div>
             </div>
         </div>
         <div class="song-status">
@@ -214,21 +202,20 @@
 
                 <button type="button" class="btn btn-clean mr-1" title="Anterior"><ion-icon name="play-skip-back-outline"></ion-icon></button>
 
-                <button type="button" class="btn btn-clean mr-1 hide" title="Pause"><ion-icon name="pause-outline"></ion-icon></button>
+                <!-- <button type="button" class="btn btn-clean mr-1 hide" title="Pause"><ion-icon name="pause-outline"></ion-icon></button> -->
                 <button type="button" class="btn btn-clean mr-1" title="Play"><ion-icon name="play-outline"></ion-icon></button>
 
                 <button type="button" class="btn btn-clean mr-1" title="Próxima"><ion-icon name="play-skip-forward-outline"></ion-icon></button>
 
                 <button type="button" class="btn btn-clean" title="Repetir"><ion-icon name="repeat-outline"></ion-icon></button>
             </div>
-            <div class="song-status-duration">
-                <div class="song-status-controls-progress-bar">
-                    <span class="btn btn-clean" id="song-time-current">0:50</span>
-                    <div class="progress" id="song-time-progress">
-                        <div class="progress-bar" style="width: 20%;"></div>
-                    </div>
-                    <span class="btn btn-clean" id="song-time-total">3:00</span>
+            <div class="song-status-controls-progress-bar">
+                <span id="song-time-current">0:50</span>
+                <div class="progress" id="song-time-progress">
+                    <div class="progress-cicle" style="left: 20%;"></div>
+                    <div class="progress-bar" style="width: 20%;"></div>
                 </div>
+                <span id="song-time-total">3:00</span>
             </div>
         </div>
         <div class="song-control">
@@ -245,10 +232,11 @@
                     </button>
                 </div>
                 <div class="progress">
-                    <div class="progress-bar" style="width: 20%;"></div>
+                    <div class="progress-cicle" style="left: 50%;"></div>
+                    <div class="progress-bar" style="width: 50%;"></div>
                 </div>
             </div>
-            <div class="song-control-volume-expand">
+            <div class="song-control-volume-expand mr-2">
                 <button type="button" class="btn btn-clean" title="Tela Cheia"><ion-icon name="expand-outline"></ion-icon></button>
             </div>
         </div>

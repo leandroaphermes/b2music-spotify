@@ -40,6 +40,10 @@ a {
     text-decoration: none;
     color: var(--text-primary);
 }
+a:hover {
+    text-decoration: none;
+    color: var(--text-primary-hover);
+}
 
 ul, li {
     list-style: none;
@@ -49,7 +53,7 @@ ul, li {
 
 img {
     max-width: 100%;
-    display: inline-block;
+    display: block;
 }
 
 .hide{
@@ -64,12 +68,29 @@ img {
     height: 5px;
     background-color: var(--progress-bar-full);
     border-radius: 10px;
+    position: relative;
 }
 .progress-bar {
     width: 0%;
     height: 100%;
     background-color: var(--progress-bar-active);
     border-radius: 10px;
+    position: relative;
+}
+.progress .progress-cicle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: block;
+    background-color: var(--text-primary-white);
+    position: absolute;
+    z-index: 100;
+    top: -100%;
+    transform: translateX(-50%);
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .btn {
@@ -126,45 +147,51 @@ img {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 90px);
 }
 .menu-aside {
     width: 240px;
     height: auto;
     background-color: var(--box-primary-dark);
+    transition: width 0.5s;
+    position: relative;
 }
 
 .header-user {
     display: inline-flex;
     color: var(--text-primary-white);
 }
-.icon-user i {
-    font-size: 2em;
-    margin-top: 4%;
+.icon-user {
+    font-size: xx-large;
 }
 .header-user span {
     font-size: 1.5em;
 }
+
 .menu-list{
     margin-top: 10%;
 }
-
 .menu-list .menu-item {
     padding: 10px 7px;
     cursor: pointer;
 }
-
 .menu-item a {
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: var(--text-primary);
 }
-
-
 .menu-item:hover a {
     color: var(--text-primary-hover);
     transition: 0.3s;
 }
 
+.photo-song{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    background-color: var(--btn-secundary);
+}
 
 
 .body-content {
@@ -172,7 +199,7 @@ img {
     height: auto;
     box-shadow: inset -4px -4px 25px #000;
     background-color: var(--box-content);
-    padding: 15px;
+    padding: 25px;
     box-sizing: border-box;
     overflow: auto;
 }
@@ -196,6 +223,14 @@ img {
     font-weight: bold;
     color: var(--text-primary-white);
     letter-spacing: 0.1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-header div.card-title div.card-options a {
+    letter-spacing: normal;
+    text-transform: uppercase;
+    font-size: 0.7em;
 }
 
 .card-content {
@@ -238,7 +273,7 @@ img {
 
 
 .player-container {
-    height: 100px;
+    height: 90px;
     background-color: var(--box-secundary-dark);
     position: relative;
     display: grid;
@@ -269,33 +304,113 @@ img {
     box-sizing: border-box;
 }
 
+.song-details {
+    display: flex;
+}
+
+.photo-mini-song {
+    display: none;
+    height: 60px;
+    width: 60px;
+}
+.song-details-info{
+    padding-left: 20px;
+    align-self: center;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.song-details-title a {
+    color: var(--text-primary-white);
+}
+
 .song-status-controls {
-    font-size: 22px;
+    font-size: 25px;
     text-align: center;
 }
 
-.song-status-controls .icofont-pause, .song-status-controls .icofont-play-alt-1 {
-    font-size: 28px;
+.song-status-controls [name='pause-outline'], .song-status-controls  [name='play-outline'] {
+    font-size: 32px;
 }
 
 .song-status-controls-progress-bar{
-    margin: 0 6%;
     display: flex;
+    justify-content: center;
 }
 .song-status-controls-progress-bar .progress{
-    margin-top: 1%;
+    align-self: center;
     margin-left: 2%;
     margin-right: 2%;
+    max-width: 500px;
 }
+.song-status-controls-progress-bar:hover .progress-cicle{
+    visibility: visible;
+    opacity: 1;
+    
+}
+.song-status-controls-progress-bar:hover .progress-bar{
+    background-color: var(--btn-secundary);
+}
+
+
 
 .song-control-volume {
     display: flex;
-    width: 100px;
 }
 .song-control-volume .progress {
     display: inline-block;
-    margin-top: 7%;
+    margin-top: 6%;
+    width: 100px;
 }
+
+.song-control-volume:hover .progress-cicle{
+    visibility: visible;
+    opacity: 1;
+    
+}
+.song-control-volume:hover .progress-bar{
+    background-color: var(--btn-secundary);
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1530px){
+    .menu-aside {
+        width: 280px;
+    }
+}
+
+
+@media screen and (max-width: 1000px){
+    .menu-aside {
+        width: 40px;
+    }
+    .header-user-name{
+        display: none;
+    }
+    .menu-item .menu-item-title {
+        display: none;
+    }
+    .photo-song{
+        display: none;
+    }
+    .photo-mini-song {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
