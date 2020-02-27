@@ -13,13 +13,11 @@
     --scrollbarBG: rgba(9, 10, 10, 0.452);
     --thumbBG: rgba(43, 47, 48, 0.904);
 }
-
 html,body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
 body{
     background-color: var(--box-content);
     position: relative;
@@ -31,29 +29,48 @@ body{
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
-
 ::-webkit-scrollbar { width: 11px; }
 ::-webkit-scrollbar-track { background: var(--scrollbarBG); }
 ::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 6px; }
-
 a {
     text-decoration: none;
     color: var(--text-primary);
 }
-a:hover {
+.active, a:active, a:hover, a:focus {
     text-decoration: none;
     color: var(--text-primary-hover);
 }
-
+.active {
+    background-color: var(--box-content);
+    border-radius: 5px;
+}
 ul, li {
     list-style: none;
     padding: 0px;
     margin: 0px
 }
-
 img {
     max-width: 100%;
     display: block;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none; 
+}
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"] {
+    outline: none;
+    outline-offset: none;
+    width: 100%;
+    font-family: 'Roboto', Tahoma, sans-serif;
+    box-sizing: border-box;
 }
 
 .hide{
@@ -139,6 +156,12 @@ img {
     font-size: 1.4rem;
 }
 
+.form-control {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    background-color: var(--text-primary-white);
+}
 
 
 
@@ -160,6 +183,7 @@ img {
 .header-user {
     display: inline-flex;
     color: var(--text-primary-white);
+    position: relative;
 }
 .icon-user {
     font-size: xx-large;
@@ -175,9 +199,11 @@ img {
     padding: 10px 7px;
     cursor: pointer;
 }
+
 .menu-item a {
     font-size: 1.1em;
     color: var(--text-primary);
+    position: relative;
 }
 .menu-item:hover a {
     color: var(--text-primary-hover);
@@ -186,12 +212,13 @@ img {
 
 .photo-song{
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     left: 0px;
     width: 100%;
     height: auto;
     background-color: var(--btn-secundary);
 }
+
 
 
 .body-content {
@@ -212,12 +239,11 @@ img {
     grid-template-rows: auto 1fr;
     grid-gap: 16px;
     margin-bottom: 25px;
+    overflow: hidden;
 }
-
 .card-header{
     grid-column: 1/-1;
 }
-
 .card-header div.card-title {
     font-size: 1.5em;
     font-weight: bold;
@@ -226,13 +252,11 @@ img {
     display: flex;
     justify-content: space-between;
 }
-
 .card-header div.card-title div.card-options a {
     letter-spacing: normal;
     text-transform: uppercase;
     font-size: 0.7em;
 }
-
 .card-content {
     background-color: var(--box-secundary-dark);
     width: 100%;
@@ -243,6 +267,17 @@ img {
     position: relative;
     cursor: pointer;
 }
+.card-page {
+    grid-column: 1/-1;
+    background-color: transparent;
+    cursor: initial;
+}
+.card-auto-rows {
+    grid-auto-rows: auto;
+    overflow: auto;
+}
+
+
 .song-describe .song-describe-title {
     color: var(--text-primary-white);
     font-size: 0.8em;
@@ -266,10 +301,38 @@ img {
     visibility: visible;
 }
 
+.genre-container {
+    background-color: blanchedalmond;
+    border-radius: 15px;
+    padding: 0;
+}
 
+.genre-songs{
+    display: block;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(0deg, transparent, rgba(0,0,0, .4));
+}
 
+.genre-songs .genre-song-title {
+    margin: 15px;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--text-primary-white);
+}
 
-
+.genre-songs .genre-song-photo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    transform: rotate(25deg) translate(18%,-2%);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, .4);
+}
 
 
 .player-container {
@@ -384,7 +447,7 @@ img {
 }
 
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px), (max-height: 600px){
     .menu-aside {
         width: 40px;
     }
@@ -400,9 +463,19 @@ img {
     .photo-mini-song {
         display: block;
     }
+    .menu-list .menu-item:hover .menu-item-title, .header-user:hover .header-user-name {
+        display: block;
+        position: absolute;
+        padding: 11px 15px;
+        background-color: var(--box-primary-dark);
+        top: 0px;
+        left: 0px;
+        width: 150px;
+        z-index: 1000;
+        transform: translateY(-24%) translateX(9%);
+        border-radius: 0px 5px 5px  0px ;
+    }
 }
-
-
 
 
 
