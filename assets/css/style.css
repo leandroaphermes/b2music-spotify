@@ -9,6 +9,9 @@
     --btn-secundary: #e55812;
     --progress-bar-active: #5a8888;
     --progress-bar-full: #325050;
+    --alert-success: #60bd3c;
+    --alert-info: #0f7eaa;
+    --alert-danger: #b42121;
     
     --scrollbarBG: rgba(9, 10, 10, 0.452);
     --thumbBG: rgba(43, 47, 48, 0.904);
@@ -37,12 +40,17 @@ a {
     color: var(--text-primary);
 }
 .active, a:active, a:hover, a:focus {
-    text-decoration: none;
     color: var(--text-primary-hover);
 }
 .active {
     background-color: var(--box-content);
     border-radius: 5px;
+}
+a.active-line {
+    text-decoration: none;
+    color: var(--text-primary-hover);
+    border-bottom: 3px solid var(--btn-secundary);
+    padding-bottom: 0.2em;
 }
 ul, li {
     list-style: none;
@@ -65,6 +73,8 @@ input[type="password"],
 input[type="email"],
 input[type="tel"],
 input[type="url"],
+input[type="date"],
+select,
 input[type="search"] {
     outline: none;
     outline-offset: none;
@@ -156,11 +166,54 @@ input[type="search"] {
     font-size: 1.4rem;
 }
 
+
+
+.form-group {
+    margin: 0px 0px 15px 0px;
+}
+.form-group label {
+    margin-bottom: 0.2em;
+    display: block;
+}
 .form-control {
     border: none;
     padding: 10px 15px;
     border-radius: 15px;
     background-color: var(--text-primary-white);
+}
+
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+
+.alert{
+    position: fixed;
+    display: inline-block;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: var(--progress-bar-full);
+    box-sizing: border-box;
+    border-radius: 50px;
+    z-index: 1000;
+    color: var(--text-primary-white);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.alert.alert-success {
+    background-color: var(--alert-success);
+}
+.alert.alert-danger {
+    background-color: var(--alert-danger);
+}
+.alert.alert-info {
+    background-color: var(--alert-info);
 }
 
 
@@ -188,8 +241,9 @@ input[type="search"] {
 .icon-user {
     font-size: xx-large;
 }
-.header-user span {
+.header-user .header-user-name {
     font-size: 1.5em;
+    text-transform: capitalize;
 }
 
 .menu-list{
@@ -204,6 +258,7 @@ input[type="search"] {
     font-size: 1.1em;
     color: var(--text-primary);
     position: relative;
+    display: block;
 }
 .menu-item:hover a {
     color: var(--text-primary-hover);
@@ -229,6 +284,7 @@ input[type="search"] {
     padding: 25px;
     box-sizing: border-box;
     overflow: auto;
+    position: relative;
 }
 
 
@@ -305,6 +361,7 @@ input[type="search"] {
     background-color: blanchedalmond;
     border-radius: 15px;
     padding: 0;
+    overflow: auto;
 }
 
 .genre-songs{
@@ -434,9 +491,169 @@ input[type="search"] {
     background-color: var(--btn-secundary);
 }
 
+div.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-row: 1;
+    grid-gap: 15px;
+}
 
-
-
+/* col-sm-* */
+@media screen and (max-width: 780px){
+    div.row div.col-sm-1 {
+        grid-column: span 1;
+    }
+    div.row div.col-sm-2 {
+        grid-column: span 2;
+    }
+    div.row div.col-sm-3 {
+        grid-column: span 3;
+    }
+    div.row div.col-sm-4 {
+        grid-column: span 4;
+    }
+    div.row div.col-sm-5 {
+        grid-column: span 5;
+    }
+    div.row div.col-sm-6 {
+        grid-column: span 6;
+    }
+    div.row div.col-sm-7 {
+        grid-column: span 7;
+    }
+    div.row div.col-sm-8 {
+        grid-column: span 8;
+    }
+    div.row div.col-sm-9 {
+        grid-column: span 9;
+    }
+    div.row div.col-sm-10 {
+        grid-column: span 10;
+    }
+    div.row div.col-sm-11 {
+        grid-column: span 11;
+    }
+    div.row div.col-sm-12 {
+        grid-column: span 12;
+    }
+}
+/* col-md-* */
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+    div.row div.col-md-1 {
+        grid-column: span 1;
+    }
+    div.row div.col-md-2 {
+        grid-column: span 2;
+    }
+    div.row div.col-md-3 {
+        grid-column: span 3;
+    }
+    div.row div.col-md-4 {
+        grid-column: span 4;
+    }
+    div.row div.col-md-5 {
+        grid-column: span 5;
+    }
+    div.row div.col-md-6 {
+        grid-column: span 6;
+    }
+    div.row div.col-md-7 {
+        grid-column: span 7;
+    }
+    div.row div.col-md-8 {
+        grid-column: span 8;
+    }
+    div.row div.col-md-9 {
+        grid-column: span 9;
+    }
+    div.row div.col-md-10 {
+        grid-column: span 10;
+    }
+    div.row div.col-md-11 {
+        grid-column: span 11;
+    }
+    div.row div.col-md-12 {
+        grid-column: span 12;
+    }
+}
+/* col-lg-* */
+@media screen  and (min-width: 1200px) and (max-width: 1600px) {
+    div.row div.col-lg-1 {
+        grid-column: span 1;
+    }
+    div.row div.col-lg-2 {
+        grid-column: span 2;
+    }
+    div.row div.col-lg-3 {
+        grid-column: span 3;
+    }
+    div.row div.col-lg-4 {
+        grid-column: span 4;
+    }
+    div.row div.col-lg-5 {
+        grid-column: span 5;
+    }
+    div.row div.col-lg-6 {
+        grid-column: span 6;
+    }
+    div.row div.col-lg-7 {
+        grid-column: span 7;
+    }
+    div.row div.col-lg-8 {
+        grid-column: span 8;
+    }
+    div.row div.col-lg-9 {
+        grid-column: span 9;
+    }
+    div.row div.col-lg-10 {
+        grid-column: span 10;
+    }
+    div.row div.col-lg-11 {
+        grid-column: span 11;
+    }
+    div.row div.col-lg-12 {
+        grid-column: span 12;
+    }
+}
+/* col-xl-* */
+@media screen and (min-width: 1600px) and (max-width: 1900px) {
+    div.row div.col-xl-1 {
+        grid-column: span 1;
+    }
+    div.row div.col-xl-2 {
+        grid-column: span 2;
+    }
+    div.row div.col-xl-3 {
+        grid-column: span 3;
+    }
+    div.row div.col-xl-4 {
+        grid-column: span 4;
+    }
+    div.row div.col-xl-5 {
+        grid-column: span 5;
+    }
+    div.row div.col-xl-6 {
+        grid-column: span 6;
+    }
+    div.row div.col-xl-7 {
+        grid-column: span 7;
+    }
+    div.row div.col-xl-8 {
+        grid-column: span 8;
+    }
+    div.row div.col-xl-9 {
+        grid-column: span 9;
+    }
+    div.row div.col-xl-10 {
+        grid-column: span 10;
+    }
+    div.row div.col-xl-11 {
+        grid-column: span 11;
+    }
+    div.row div.col-xl-12 {
+        grid-column: span 12;
+    }
+}
 
 
 
