@@ -193,9 +193,9 @@ input[type="search"] {
 }
 
 .alert{
-    position: fixed;
+    position: sticky;
     display: inline-block;
-    bottom: 100px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     padding: 15px 30px;
@@ -205,6 +205,7 @@ input[type="search"] {
     z-index: 1000;
     color: var(--text-primary-white);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    opacity: 1;
 }
 .alert.alert-success {
     background-color: var(--alert-success);
@@ -495,7 +496,7 @@ div.row {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-row: 1;
-    grid-gap: 15px;
+    column-gap: 15px;
 }
 
 /* col-sm-* */
