@@ -14,6 +14,9 @@
     --alert-success: #4ea52c;
     --alert-info: #0f7eaa;
     --alert-danger: #b42121;
+    --text-success: #4ea52c;
+    --text-info: #0f7eaa;
+    --text-danger: #e23737;
     
     --scrollbarBG: rgba(9, 10, 10, 0.452);
     --thumbBG: rgba(43, 47, 48, 0.904);
@@ -67,7 +70,7 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-  display: none; 
+    display: none; 
 }
 input[type="text"],
 input[type="number"],
@@ -83,6 +86,17 @@ input[type="search"] {
     width: 100%;
     font-family: 'Roboto', Tahoma, sans-serif;
     box-sizing: border-box;
+    font-size: 16px;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+select {
+    position: relative;
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -248,7 +262,14 @@ img.shadow {
     background-color: var(--alert-info);
 }
 
+/* Input Error */
+.input-error{
+    font-size: 0.9em;
+    color: var(--text-danger);
+    font-weight: bold;
+}
 
+/* Modal CSS */
 div.modal {
     position: fixed;
     top: 0px;
@@ -665,24 +686,99 @@ div.dropdown div.dropdown-menu a {
 
 
 /*  Login Page */
-.login-content {
-    width: 500px;
-    height: 200px;
+.login-container {
+    height: 100vh;
+    position: relative;
     display: block;
-    align-self: center;
-    background-color: var(--box-secundary-dark);
+    overflow: hidden;
+}
+.login-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/bg-login.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(4px);
+    transition: filter 1s;
+    animation-name: zoonInZoonOut;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+.login-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 400px;
+    height: 100vh;
+    background-color: rgba(9, 10, 10, 0.685);
     padding: 15px;
     box-shadow: 0px 0px 10px var(--box-content);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
-.login-header {
-
+.login-text{
+    position: absolute;
+    top: 30%;
+    right: 0;
+    font-size: 48px;
+    color: var(--text-primary-white);
+    text-align: end;
+    padding-right: 10px;
+    text-shadow: 0px 0px 2px rgb(36, 33, 30), 0px 0px 2px rgb(63, 30, 26), 2px 0px 2px rgb(31, 29, 27), 0px 2px 2px rgb(35, 31, 28);
+    transform: translateX(100%);
+    animation-name: text-login;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+    font-family: 'Quicksand', sans-serif;
+}
+.login-text span {
+    text-transform: uppercase;
+    font-size: 2em;
+    line-height: 0.9em;
+    display: block;
+    color: white;
+    font-weight: bold;
 }
 
+@keyframes zoonInZoonOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(1.1) translate(3%, 3%);
+        filter: blur(0px);
+    }
+    60%{
+        transform: scale(1.1) translate(-3%, -3%);
+        filter: blur(0px);
+    }
+}
+@keyframes text-login {
+    to {
+        transform: translateX(0);
+    }
+}
 
-
-
-
-
+.login-footer{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.login-footer p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
 
 
 
@@ -962,6 +1058,55 @@ div.row {
     margin: 2rem !important;
 }
 
+.mx-0 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.mx-1 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+.mx-2 {
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
+}
+.mx-3 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+.mx-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+.mx-5 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+.my-0 {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.my-1 {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+}
+.my-2 {
+    margin-left: 0.8rem !important;
+    margin-right: 0.8rem !important;
+}
+.my-3 {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+}
+.my-4 {
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
+}
+.my-5 {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+}
+
 
 .mt-0 {
     margin-top: 0px !important;
@@ -1063,6 +1208,55 @@ div.row {
 }
 .p-5 {
     padding: 2rem !important;
+}
+
+.px-0 {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.px-1 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+.px-2 {
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+}
+.px-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+.px-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+.px-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+.py-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.py-1 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+.py-2 {
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+}
+.py-3 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+.py-4 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+.py-5 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
 }
 
 .pt-0 {

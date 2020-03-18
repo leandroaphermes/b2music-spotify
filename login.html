@@ -10,15 +10,60 @@
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container vh-100 just-content-center">
+    <div class="container login-container">
+        <div class="login-background"></div>
         <section class="login-content">
             <header class="login-header">
-                <h4>Login</h4>
+                <img class="mb-4" src="/assets/img/logo-light.png" alt="Logo B2 Music" lang="en">
             </header>
             <article class="login-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam natus illum earum aliquam. Culpa sequi perspiciatis atque autem laudantium dolorem, alias pariatur? Iure architecto quis iusto? Hic cum totam ipsa?</p>
+                
+                <form action="/" method="POST">
+                    
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu E-mail" />
+                        <div class="input-error" id="input-error-email">
+                            Você precisa prencher este campo
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua Senha" />
+                        <div class="input-error" id="input-error-password">
+                            Você precisa prencher este campo
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block"> <ion-icon name="log-in-outline"></ion-icon> Entrar</button>
+
+                    <div class="text-center">
+                        <a href="#">Esqueci a senha</a>
+                    </div>
+
+
+                    <div class="mt-5 text-center">
+                        <div class="mb-1">Ou faça logins pelas plataformas</div>
+                        <button type="button" class="btn btn-primary">
+                            <ion-icon name="logo-google"></ion-icon>
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </button>
+                    </div>
+
+                
+                </form>
+                
             </article>
+            <footer class="login-footer">
+                <p>Projeto de musica para estudos de CSS</p>
+                <p>By Leandro Hermes (Hamaro)</p>
+            </footer>
         </section>
+        <div class="login-text">
+            Escute suas musicas<br>
+            Como se você estivese na 
+            <span>festa</span>
+        </div>
     </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
